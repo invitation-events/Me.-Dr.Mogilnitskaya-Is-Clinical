@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Me. Dr.Mogilnitskaya | WOW BRUNCH</title>
 
+    <!-- Open Graph для превью при отправке -->
+    <meta property="og:title" content="Me. Dr.Mogilnitskaya | WOW BRUNCH">
+    <meta property="og:description" content="Бьюти-девичник: разбор ухода за кожей, мастер-класс по макияжу, мороженое и коктейли.">
+    <meta property="og:image" content="image_2026-08-05_21-08-42.png">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@100;200;300;400;500;700;800&family=Parisienne&family=Pinyon+Script&display=swap" rel="stylesheet">
 
     <style>
@@ -55,7 +62,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('главная (1).png');
+            background-image: url('image_2026-08-05_21-08-42.png');
             background-size: cover;
             background-position: center 30%;
             opacity: 0;
@@ -354,7 +361,7 @@
             opacity: 1;
         }
 
-        /* ----- ЛОКАЦИЯ ----- */
+        /* ----- ЛОКАЦИЯ (с IMG_9099.WEBP) ----- */
         .location-section {
             position: relative;
             max-width: 450px;
@@ -375,7 +382,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('image.png');
+            background-image: url('IMG_9099.WEBP');
             background-size: cover;
             background-position: center;
             opacity: 0;
@@ -384,7 +391,9 @@
             z-index: 1;
         }
 
-        .location-section.visible .location-bg { opacity: 0.9; }
+        .location-section.visible .location-bg {
+            opacity: 0.9;
+        }
 
         .location-card {
             position: relative;
@@ -479,77 +488,7 @@
         .location-section.visible .venue-address { opacity: 1; transform: translateY(0); }
         .location-section.visible .btn-maps { opacity: 1; transform: translateY(0); }
 
-        /* ----- ТАЙМИНГ ----- */
-        .timeline-screen {
-            background: #fff;
-            padding: 50px 20px 60px;
-        }
-
-        .timeline-container {
-            max-width: 400px;
-            margin: 0 auto;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 1.8s cubic-bezier(0.2,0.9,0.3,1.1);
-        }
-
-        .timeline-container.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-main-title {
-            font-family: 'Lighthaus', 'Quicksand', sans-serif;
-            font-weight: 400;
-            font-size: clamp(1.8rem, 4.5vw, 2.2rem);
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            margin-bottom: 8px;
-        }
-
-        .timeline-subtitle {
-            font-family: 'Pinyon Script', cursive;
-            font-size: clamp(1.3rem, 3.5vw, 1.6rem);
-            margin-bottom: 25px;
-        }
-
-        .timeline-middle-line {
-            width: 1px;
-            background: #b5b5b5;
-            margin: 0 auto 30px auto;
-            height: 50px;
-        }
-
-        .timeline-list {
-            margin: 35px 0 25px;
-        }
-
-        .timeline-item {
-            margin: 30px 0;
-            opacity: 0;
-            transition: opacity 0.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.8s cubic-bezier(0.2,0.9,0.3,1.1);
-        }
-
-        .timeline-item.slide-left { transform: translateX(-40px); }
-        .timeline-item.slide-right { transform: translateX(40px); }
-        .timeline-item.visible { opacity: 1; transform: translateX(0); }
-        .timeline-item .time {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 28px;
-            font-weight: 500;
-            margin-bottom: 4px;
-        }
-        .timeline-item .timeline-desc {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            font-weight: 400;
-            color: #333;
-            max-width: 300px;
-            margin: 0 auto;
-        }
-
-        /* ----- СПИКЕРЫ ----- */
+        /* ----- СПИКЕРЫ / ПРОГРАММА ----- */
         .speakers-screen {
             background: #fff;
             padding: 40px 20px 60px;
@@ -625,19 +564,7 @@
             color: #1a1a1a;
         }
 
-        .speaker-theme ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 6px;
-        }
-
-        .speaker-theme ul li {
-            font-size: 0.8rem;
-            padding: 2px 0;
-            color: #555;
-        }
-
-        /* ----- ВДОХНОВЕНИЕ (без смайликов) ----- */
+        /* ----- ВДОХНОВЕНИЕ ----- */
         .dresscode-screen {
             background: #fff;
             padding: 40px 16px 60px;
@@ -695,7 +622,6 @@
             transform: translateY(0);
         }
 
-        /* Вдохновение: без смайликов, только текст */
         .vibe-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -908,6 +834,7 @@
     </div>
 </div>
 
+<!-- ЛОКАЦИЯ с IMG_9099.WEBP -->
 <div class="location-section" id="locationSection">
     <div class="location-bg"></div>
     <div class="location-card">
@@ -1060,7 +987,16 @@
         }
 
         const locSec = document.getElementById('locationSection');
-        if (locSec) new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) locSec.classList.add('visible'); observer.disconnect(); }); }, { threshold: 0.3 }).observe(locSec);
+        if (locSec) {
+            new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        locSec.classList.add('visible');
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 }).observe(locSec);
+        }
 
         const speakersScreen = document.getElementById('speakersScreen');
         if (speakersScreen) {
