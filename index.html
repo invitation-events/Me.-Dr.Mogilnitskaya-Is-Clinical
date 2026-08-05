@@ -2,15 +2,24 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Me. Dr.Mogilnitskaya | WOW BRUNCH</title>
 
-    <!-- Open Graph для превью при отправке -->
-    <meta property="og:title" content="Me. Dr.Mogilnitskaya | WOW BRUNCH">
-    <meta property="og:description" content="Бьюти-девичник: разбор ухода за кожей, мастер-класс по макияжу, мороженое и коктейли.">
-    <meta property="og:image" content="image_2026-08-05_21-08-42.png">
-    <meta property="og:url" content="">
-    <meta property="og:type" content="website">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Me. Dr.Mogilnitskaya | WOW BRUNCH" />
+    <meta property="og:description" content="Бьюти-девичник: разбор ухода за кожей, мастер-класс по макияжу, мороженое и коктейли." />
+    <meta property="og:image" content="image_2026-08-05_21-08-42.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Me. Dr.Mogilnitskaya" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Me. Dr.Mogilnitskaya | WOW BRUNCH" />
+    <meta name="twitter:description" content="Бьюти-девичник: разбор ухода за кожей, мастер-класс по макияжу, мороженое и коктейли." />
+    <meta name="twitter:image" content="image_2026-08-05_21-08-42.png" />
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@100;200;300;400;500;700;800&family=Parisienne&family=Pinyon+Script&display=swap" rel="stylesheet">
 
@@ -52,8 +61,21 @@
             position: relative;
             width: 100%;
             height: 100vh;
+            height: 100dvh;
+            min-height: 100vh;
+            min-height: 100dvh;
+            max-height: 100vh;
+            max-height: 100dvh;
             overflow: hidden;
             background-color: #0a0a0a;
+        }
+
+        @supports not (height: 100dvh) {
+            .first-screen {
+                height: 100vh;
+                min-height: 100vh;
+                max-height: 100vh;
+            }
         }
 
         .photo-bg {
@@ -93,7 +115,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 2rem;
         }
@@ -103,10 +125,10 @@
             font-size: 2.8rem;
             color: rgba(255,248,235,0.92);
             text-shadow: 0 1px 8px rgba(0,0,0,0.2);
-            margin-top: 2vh;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
+            margin-bottom: 1.5rem;
         }
 
         .event-script.visible {
@@ -114,81 +136,59 @@
             transform: translateY(0);
         }
 
-        .names-block-first {
-            position: absolute;
-            bottom: 115px;
-            left: 8%;
-            z-index: 10;
-        }
-
-        .names-lines {
+        .main-title-block {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            text-align: center;
             gap: 0.1rem;
-            position: relative;
         }
 
-        .name-line {
+        .main-title-line {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
             font-weight: 300;
-            font-size: 3.6rem;
-            letter-spacing: 5px;
+            letter-spacing: 10px;
             text-transform: uppercase;
             color: #fffcf5;
             text-shadow: 0 2px 14px rgba(0,0,0,0.45);
             opacity: 0;
             line-height: 1.1;
-            display: inline-block;
-        }
-
-        .km-name {
             transform: translateX(-35px);
             transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);
-            font-size: 4.6rem;
-            letter-spacing: 8px;
         }
 
-        .clinic-name {
-            transform: translateX(35px);
-            transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);
-            margin-left: 0;
-            margin-top: -6px;
-            font-size: 2.8rem;
-            letter-spacing: 6px;
-        }
-
-        .km-name.visible,
-        .clinic-name.visible {
+        .main-title-line.visible {
             opacity: 1;
             transform: translateX(0);
         }
 
-        .tagline-between {
+        .main-title-line.km-clinic {
+            font-size: 5rem;
+            letter-spacing: 10px;
+        }
+
+        .tagline-center {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-weight: 400;
-            font-size: 2.4rem;
-            color: rgba(200, 200, 200, 0.6);
-            text-shadow: none;
-            line-height: 0.9;
-            margin-left: 0;
-            margin-top: -8px;
-            margin-bottom: -8px;
+            font-size: 2.6rem;
+            color: rgba(200, 200, 200, 0.7);
+            text-shadow: 0 1px 8px rgba(0,0,0,0.2);
+            letter-spacing: 4px;
             opacity: 0;
             transform: translateX(-35px);
             transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);
-            letter-spacing: 3px;
+            margin: 0.1rem 0;
         }
 
-        .tagline-between.visible {
-            opacity: 0.7;
+        .tagline-center.visible {
+            opacity: 0.8;
             transform: translateX(0);
         }
 
         .scroll-down {
             position: absolute;
-            bottom: 50px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -196,9 +196,9 @@
             justify-content: center;
             background: rgba(255, 255, 255, 0.96);
             color: #1a1a1a;
-            padding: 8px 22px;
+            padding: 8px 20px;
             border-radius: 0px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             cursor: pointer;
             white-space: nowrap;
@@ -224,11 +224,27 @@
             height: 11px;
         }
 
+        @media (max-width: 768px) {
+            .main-title-line.km-clinic { font-size: 3.8rem; letter-spacing: 6px; }
+            .tagline-center { font-size: 2rem; }
+            .event-script { font-size: 2.2rem; }
+        }
+        @media (max-width: 580px) {
+            .main-title-line.km-clinic { font-size: 2.8rem; letter-spacing: 4px; }
+            .tagline-center { font-size: 1.6rem; }
+            .event-script { font-size: 1.8rem; }
+        }
+        @media (max-width: 480px) {
+            .main-title-line.km-clinic { font-size: 2.2rem; letter-spacing: 3px; }
+            .tagline-center { font-size: 1.3rem; }
+            .event-script { font-size: 1.5rem; }
+        }
+
         /* ----- ВТОРОЙ ЭКРАН ----- */
         .second-screen {
             width: 100%;
             background: #fff;
-            padding: 60px 20px;
+            padding: 40px 20px;
         }
 
         .invitation-container {
@@ -237,24 +253,19 @@
             margin: 0 auto;
         }
 
-        .title-wrapper {
-            margin-bottom: 20px;
-        }
-
-        .title-line {
-            display: block;
+        .greeting-title {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
             font-weight: 400;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             letter-spacing: 4px;
-            line-height: 1.3;
             color: #1a1a1a;
+            margin-bottom: 12px;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
             transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
-        .title-wrapper.visible .title-line {
+        .greeting-title.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -263,30 +274,30 @@
             font-family: 'Pinyon Script', cursive;
             font-size: clamp(2rem, 4.5vw, 2.4rem);
             color: #1a1a1a;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
             transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
         .description-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            line-height: 1.6;
             color: #555;
             font-weight: 300;
             letter-spacing: 0.5px;
             max-width: 320px;
-            margin: 0 auto 35px;
+            margin: 0 auto 25px;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(40px);
             transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
         .line {
             width: 1px;
             background: #1a1a1a;
-            height: 60px;
+            height: 40px;
             margin: 0 auto;
             opacity: 0;
             transform: scaleY(0);
@@ -294,13 +305,13 @@
         }
 
         .line-top {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             transform-origin: top;
         }
 
         .line-bottom {
-            margin-top: 30px;
-            margin-bottom: 50px;
+            margin-top: 20px;
+            margin-bottom: 30px;
             transform-origin: bottom;
         }
 
@@ -311,6 +322,7 @@
             align-items: baseline;
             gap: 5px;
             flex-wrap: wrap;
+            margin-bottom: 0;
         }
 
         .date-number {
@@ -323,12 +335,12 @@
         }
 
         .from-left-1, .from-left-2 {
-            transform: translateX(-100px);
+            transform: translateX(-80px);
             transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
         .from-right {
-            transform: translateX(100px);
+            transform: translateX(80px);
             transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
@@ -340,7 +352,32 @@
             transition: opacity 2s ease;
         }
 
-        .title-wrapper.visible,
+        .gathering-time {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(0.8rem, 1.8vw, 1rem);
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
+            margin-top: 24px;
+            display: block;
+            width: 100%;
+        }
+        .gathering-time.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gathering-time span {
+            display: inline-block;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 4px 16px;
+            font-weight: 300;
+        }
+
+        .greeting-title.visible,
         .save-the-date.visible,
         .description-text.visible {
             opacity: 1;
@@ -361,104 +398,91 @@
             opacity: 1;
         }
 
-        /* ----- ЛОКАЦИЯ (с IMG_9099.WEBP) ----- */
+        /* ----- ЛОКАЦИЯ ----- */
         .location-section {
             position: relative;
-            max-width: 450px;
-            margin: 0 auto;
-            padding: 50px 25px;
-            background: #fff;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .location-section.visible {
-            opacity: 1;
+            padding: 40px 25px;
+            background: #ffffff;
+            overflow: hidden;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
         }
 
         .location-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-image: url('IMG_9099.WEBP');
             background-size: cover;
             background-position: center;
-            opacity: 0;
-            filter: grayscale(100%) brightness(0.3) contrast(1.2);
-            transition: opacity 2.5s cubic-bezier(0.2,0.9,0.4,1) 0.3s;
-            z-index: 1;
+            opacity: 1;
+            z-index: 0;
         }
 
-        .location-section.visible .location-bg {
-            opacity: 0.9;
-        }
-
-        .location-card {
+        .location-content {
             position: relative;
-            z-index: 2;
-            background: rgba(255,255,255,0.95);
-            padding: 40px 25px;
+            z-index: 1;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .icon-scene {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px;
-            opacity: 0;
-            transform: scale(0.8);
-            transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);
+            background: rgba(255, 255, 255, 0.88);
+            padding: 30px 25px;
         }
 
         .location-title {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
             font-weight: 400;
-            font-size: clamp(1.6rem, 4vw, 2rem);
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
             opacity: 0;
-            transform: translateX(-60px);
+            transform: translateX(-50px);
             transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);
+        }
+
+        .location-title.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .save-the-place {
             font-family: 'Pinyon Script', cursive;
             font-size: clamp(2rem, 5vw, 2.5rem);
             font-weight: 400;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: inline-block;
-            transform: skewX(-3deg) translateX(60px);
+            transform: skewX(-3deg) translateX(50px);
             opacity: 0;
             transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
-        .venue-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 800;
-            line-height: 1.4;
-            max-width: 260px;
-            margin: 0 auto 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0;
-            transform: translateY(55px);
-            transition: opacity 2.8s cubic-bezier(0.16,1,0.3,1.1), transform 2.8s cubic-bezier(0.16,1,0.3,1.1);
+        .save-the-place.visible {
+            opacity: 1;
+            transform: skewX(-3deg) translateX(0);
         }
 
-        .venue-address {
+        .venue-line {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: #555;
-            margin-bottom: 15px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #333;
+            margin-bottom: 4px;
             opacity: 0;
-            transform: translateY(55px);
-            transition: opacity 2.8s cubic-bezier(0.16,1,0.3,1.1), transform 2.8s cubic-bezier(0.16,1,0.3,1.1);
+            transform: translateY(45px);
+            transition: opacity 2.5s cubic-bezier(0.16,1,0.3,1.1), transform 2.5s cubic-bezier(0.16,1,0.3,1.1);
+        }
+
+        .venue-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .venue-line strong {
+            font-weight: 600;
+            color: #1a1a1a;
+            white-space: nowrap;
         }
 
         .btn-maps {
@@ -470,28 +494,26 @@
             font-size: 0.7rem;
             font-weight: 400;
             letter-spacing: 2px;
-            padding: 12px 30px;
+            padding: 10px 28px;
             text-transform: uppercase;
             opacity: 0;
-            transform: translateY(55px);
-            transition: opacity 3s cubic-bezier(0.16,1,0.3,1.1), transform 3s cubic-bezier(0.16,1,0.3,1.1);
+            transform: translateY(45px);
+            transition: opacity 2.8s cubic-bezier(0.16,1,0.3,1.1), transform 2.8s cubic-bezier(0.16,1,0.3,1.1);
+        }
+
+        .btn-maps.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .btn-maps:hover {
             background: #333;
         }
 
-        .location-section.visible .icon-scene { opacity: 1; transform: scale(1); }
-        .location-section.visible .location-title { opacity: 1; transform: translateX(0); }
-        .location-section.visible .save-the-place { opacity: 1; transform: skewX(-3deg) translateX(0); }
-        .location-section.visible .venue-name { opacity: 1; transform: translateY(0); }
-        .location-section.visible .venue-address { opacity: 1; transform: translateY(0); }
-        .location-section.visible .btn-maps { opacity: 1; transform: translateY(0); }
-
-        /* ----- СПИКЕРЫ / ПРОГРАММА ----- */
+        /* ----- СПИКЕРЫ ----- */
         .speakers-screen {
             background: #fff;
-            padding: 40px 20px 60px;
+            padding: 35px 20px 45px;
         }
 
         .speakers-container {
@@ -506,9 +528,9 @@
             font-size: clamp(1.8rem, 4vw, 2.2rem);
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 10px;
+            margin-bottom: 25px;
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(35px);
             transition: opacity 2s cubic-bezier(0.25,0.8,0.4,1), transform 2s cubic-bezier(0.25,0.8,0.4,1);
         }
 
@@ -519,12 +541,13 @@
 
         .speaker-card {
             background: #f8f8f8;
-            padding: 25px 20px;
-            margin-bottom: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
             border-left: 3px solid #1a1a1a;
+            text-align: center;
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.8s cubic-bezier(0.2,0.9,0.3,1.1);
+            transform: translateY(25px);
+            transition: opacity 0.9s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.9s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
         .speaker-card.visible {
@@ -534,16 +557,17 @@
 
         .speaker-name {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 400;
             letter-spacing: 2px;
             color: #1a1a1a;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
+            white-space: nowrap;
         }
 
         .speaker-role {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -553,71 +577,66 @@
 
         .speaker-theme {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 300;
             color: #444;
-            line-height: 1.5;
+            line-height: 1.6;
+            text-align: center;
         }
 
         .speaker-theme strong {
             font-weight: 500;
             color: #1a1a1a;
+            display: block;
+            text-align: center;
+            margin-bottom: 2px;
         }
 
-        /* ----- ВДОХНОВЕНИЕ ----- */
-        .dresscode-screen {
+        @media (max-width: 480px) {
+            .speaker-name {
+                font-size: 1.1rem;
+                white-space: normal;
+            }
+        }
+
+        /* ----- АТМОСФЕРА (фото в ряд) ----- */
+        .vibe-screen {
             background: #fff;
-            padding: 40px 16px 60px;
+            padding: 35px 16px 45px;
         }
 
-        .dresscode-container {
+        .vibe-container {
             width: 100%;
             max-width: 450px;
             margin: 0 auto;
             text-align: center;
-            position: relative;
         }
 
-        .dresscode-main-title {
+        .vibe-title {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
             font-weight: 400;
-            font-size: 36px;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            line-height: 1.2;
+            letter-spacing: 4px;
             color: #121212;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(35px);
             transition: opacity 2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 2s cubic-bezier(0.25, 0.8, 0.4, 1);
         }
 
-        .dresscode-tagline {
+        .vibe-tagline {
             font-family: 'Pinyon Script', cursive;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             color: #1a1a1a;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(35px);
             transition: opacity 2s cubic-bezier(0.25,0.8,0.4,1), transform 2s cubic-bezier(0.25,0.8,0.4,1);
         }
 
-        .dresscode-description {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 300;
-            line-height: 1.7;
-            color: #555555;
-            max-width: 340px;
-            margin: 0 auto 30px auto;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 2s cubic-bezier(0.25, 0.8, 0.4, 1);
-        }
-
-        .dresscode-main-title.visible,
-        .dresscode-tagline.visible,
-        .dresscode-description.visible {
+        .vibe-title.visible,
+        .vibe-tagline.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -625,175 +644,341 @@
         .vibe-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin: 25px 0 15px;
+            gap: 8px;
+            margin: 15px 0;
         }
 
-        .vibe-item {
-            background: #f5f5f5;
+        .vibe-grid .vibe-photo {
             aspect-ratio: 1 / 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.6rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #1a1a1a;
-            gap: 4px;
+            background-size: cover;
+            background-position: center;
             opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.8s cubic-bezier(0.2,0.9,0.3,1.1);
-            padding: 0.5rem;
+            transform: scale(0.92);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1);
         }
 
-        .vibe-item.visible {
+        .vibe-grid .vibe-photo.visible {
             opacity: 1;
             transform: scale(1);
         }
 
-        .vibe-item .icon-text {
-            font-size: 1.8rem;
-            font-family: 'Lighthaus', 'Quicksand', sans-serif;
-            font-weight: 300;
-            letter-spacing: 1px;
+        .vibe-grid .vibe-photo:nth-child(1) { background-image: url('image_2026-08-05_20-44-27.png'); }
+        .vibe-grid .vibe-photo:nth-child(2) { background-image: url('image_2026-08-05_20-51-48.png'); }
+        .vibe-grid .vibe-photo:nth-child(3) { background-image: url('image_2026-08-05_20-56-24.png'); }
+
+        @media (max-width: 480px) {
+            .vibe-grid { gap: 5px; }
         }
 
-        .vibe-item .label {
-            font-size: 0.5rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        .vibe-item.dj { background: #e8e0d8; }
-        .vibe-item.prosecco { background: #f0e6d8; }
-        .vibe-item.icecream { background: #e8eee8; }
-        .vibe-item.experts { background: #dde4e8; }
-        .vibe-item.girls { background: #f5e8ec; }
-
-        /* ----- ФИНАЛЬНЫЙ БЛОК ----- */
-        .final-screen {
+        /* ----- АНКЕТА (как в примере) ----- */
+        .rsvp-screen {
             background: #ffffff;
-            padding: 30px 20px 30px;
+            padding: 40px 20px;
         }
-        .final-container {
+
+        .rsvp-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px 25px;
+            box-shadow: none;
+            border: 1px solid #eee;
+        }
+
+        .rsvp-title {
+            font-family: 'Lighthaus', 'Quicksand', sans-serif;
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .rsvp-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 300;
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
+            display: inline-block;
+            width: 100%;
+            letter-spacing: 0.5px;
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.8s cubic-bezier(0.2,0.9,0.3,1.1);
+        }
+
+        .rsvp-subtitle.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.6s cubic-bezier(0.2,0.9,0.3,1.1);
+        }
+
+        .form-group.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px 0;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            background: transparent;
+            outline: none;
+            color: #1a1a1a;
+        }
+
+        .form-group input:focus {
+            border-bottom-color: #1a1a1a;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 18px;
+            margin-top: 5px;
+            flex-wrap: wrap;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 400;
+            text-transform: none;
+            font-size: 13px;
+            color: #1a1a1a;
+            margin-bottom: 0;
+        }
+
+        .radio-group input {
+            width: auto;
+            margin: 0;
+            accent-color: #1a1a1a;
+            padding: 0;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.6s cubic-bezier(0.2,0.9,0.3,1.1);
+        }
+
+        .submit-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .submit-btn:hover {
+            background: #333;
+        }
+
+        @media (max-width: 480px) {
+            .rsvp-title {
+                font-size: 22px;
+                white-space: normal;
+            }
+            .radio-group {
+                gap: 12px;
+            }
+        }
+
+        /* ----- ФУТЕР (me.mogilnitskaya + фото) ----- */
+        .footer {
+            padding: 30px 20px 35px;
+            text-align: center;
+            background: #fff;
+        }
+
+        .footer-container {
             max-width: 450px;
             margin: 0 auto;
-            text-align: center;
         }
-        .final-names-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        .final-name-item {
+
+        .footer-name {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
+            font-size: 2.2rem;
             font-weight: 300;
-            font-size: 46px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            line-height: 1.1;
-            color: #121212;
+            color: #1a1a1a;
             opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 2.5s cubic-bezier(0.25, 0.8, 0.4, 1), transform 2.5s cubic-bezier(0.25, 0.8, 0.4, 1);
+            transform: translateY(30px);
+            transition: opacity 1.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 1.5s cubic-bezier(0.2,0.9,0.3,1.1);
         }
-        .final-name-item.visible {
+
+        .footer-name.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .final-ampersand-item {
+
+        .footer-name .ampersand {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 38px;
+            font-size: 2.6rem;
             font-weight: 400;
-            color: #121212;
-            margin: 8px 0;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 2.5s cubic-bezier(0.25, 0.8, 0.4, 1), transform 2.5s cubic-bezier(0.25, 0.8, 0.4, 1);
+            color: #1a1a1a;
         }
-        .final-ampersand-item.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .final-photo-container {
+
+        .footer-photo {
             width: 100%;
-            padding: 0 10px;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 2.5s cubic-bezier(0.25,0.8,0.4,1), transform 2.5s cubic-bezier(0.25,0.8,0.4,1);
-        }
-        .final-photo-container.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .final-photo {
-            width: 100%;
+            max-width: 400px;
+            margin: 16px auto 0;
             aspect-ratio: 3 / 2;
             background-image: url('конец.png');
             background-size: cover;
             background-position: center;
             background-color: #f5f5f5;
-            border-radius: 20px;
+            border-radius: 16px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 1.8s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
-        /* ----- АНКЕТА ГОСТЯ ----- */
-        .rsvp-screen { background: #ffffff; padding: 60px 20px; }
-        .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 40px 30px; box-shadow: none; }
-        .rsvp-title { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-size: 32px; text-transform: uppercase; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 12px; text-align: center; white-space: nowrap; }
-        .rsvp-subtitle { font-family: 'Pinyon Script', cursive; font-size: 28px; text-align: center; color: #555; margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 15px; display: inline-block; width: 100%; }
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #1a1a1a; }
-        .form-group input, .form-group select { width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ddd; font-family: 'Montserrat', sans-serif; font-size: 16px; background: transparent; outline: none; color: #1a1a1a; }
-        .form-group select option { color: #1a1a1a; background: #ffffff; }
-        .form-group input:focus, .form-group select:focus { border-bottom-color: #1a1a1a; }
-        .radio-group { display: flex; gap: 25px; margin-top: 8px; flex-wrap: wrap; }
-        .radio-group label { display: flex; align-items: center; gap: 8px; font-weight: 400; text-transform: none; font-size: 14px; color: #1a1a1a; }
-        .radio-group input { width: auto; margin: 0; accent-color: #1a1a1a; }
-        .submit-btn { display: block; width: 100%; background: #1a1a1a; color: white; border: none; padding: 14px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; margin-top: 30px; }
-        .submit-btn:hover { background: #333; }
-        .hidden-message { text-align: center; margin-top: 20px; font-size: 12px; color: #1a1a1a; display: none; }
-
-        /* ----- КОНТАКТЫ ----- */
-        .contacts-screen { background: #ffffff; padding: 30px 20px 50px; }
-        .contacts-container { max-width: 450px; margin: 0 auto; text-align: center; }
-        .contacts-title { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-size: 32px; text-transform: uppercase; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 15px; }
-        .contacts-subtitle { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; letter-spacing: 1px; color: #777; margin-bottom: 30px; }
-        .contacts-list { display: flex; flex-direction: column; gap: 25px; margin-bottom: 35px; }
-        .contact-item { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-        .contact-role { font-family: 'Montserrat', sans-serif; font-weight: 500; color: #1a1a1a; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; }
-        .contact-info { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 300; color: #333; }
-        .contact-info a { color: #333; text-decoration: none; }
-        .contact-info a:hover { color: #6B705C; }
-        .contacts-divider { width: 1px; height: 40px; background-color: #d0d0d0; margin: 0 auto 25px; }
-        .contacts-copyright { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 1.5px; color: #aaa; text-transform: uppercase; }
-
-        @media (max-width: 768px) {
-            .name-line { font-size: 3rem; }
-            .km-name { font-size: 3.8rem; }
-            .clinic-name { font-size: 2.2rem; }
-            .tagline-between { font-size: 2rem; }
+        .footer-photo.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        @media (max-width: 580px) {
-            .name-line { font-size: 2.4rem; }
-            .km-name { font-size: 3.2rem; letter-spacing: 5px; }
-            .clinic-name { font-size: 1.8rem; letter-spacing: 4px; }
-            .tagline-between { font-size: 1.6rem; }
-            .event-script { font-size: 2rem; }
-            .rsvp-title { font-size: 24px; white-space: normal; }
+
+        /* ----- УВЕДОМЛЕНИЕ (белый фон, по центру) ----- */
+        .toast-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
         }
+
+        .toast-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .toast-modal {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 48px 40px 40px;
+            max-width: 440px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+            transform: scale(0.92) translateY(20px);
+            transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+        }
+
+        .toast-overlay.show .toast-modal {
+            transform: scale(1) translateY(0);
+        }
+
+        .toast-modal .toast-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .toast-modal .toast-title {
+            font-family: 'Lighthaus', 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #1a1a1a;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .toast-modal .toast-sub {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #666;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .toast-timer-bar {
+            width: 100%;
+            height: 2px;
+            background: #e8e8e8;
+            border-radius: 2px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .toast-timer-bar .timer-fill {
+            height: 100%;
+            width: 100%;
+            background: #1a1a1a;
+            border-radius: 2px;
+            transition: width 5s linear;
+        }
+
+        .toast-timer-bar .timer-fill.shrink {
+            width: 0%;
+        }
+
         @media (max-width: 480px) {
-            .name-line { font-size: 2rem; }
-            .km-name { font-size: 2.8rem; }
-            .clinic-name { font-size: 1.5rem; }
-            .tagline-between { font-size: 1.4rem; }
-            .vibe-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-            .vibe-item .icon-text { font-size: 1.2rem; }
-            .vibe-item .label { font-size: 0.4rem; }
+            .toast-modal {
+                padding: 32px 24px 28px;
+            }
+            .toast-modal .toast-title {
+                font-size: 18px;
+            }
+            .toast-modal .toast-sub {
+                font-size: 12px;
+            }
+            .toast-modal .toast-icon {
+                font-size: 36px;
+            }
+            .footer-name {
+                font-size: 1.6rem;
+            }
+            .footer-name .ampersand {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -804,12 +989,10 @@
     <div class="soft-veil"></div>
     <div class="content-first">
         <div class="event-script" id="eventScript">WOW BRUNCH</div>
-        <div class="names-block-first">
-            <div class="names-lines">
-                <div class="name-line km-name" id="kmName">Me.</div>
-                <div class="tagline-between" id="taglineSign">// Dr.Mogilnitskaya</div>
-                <div class="name-line clinic-name" id="clinicName">Is Clinical</div>
-            </div>
+        <div class="main-title-block">
+            <div class="main-title-line km-clinic" id="kmClinicName">Me.</div>
+            <div class="tagline-center" id="taglineSign">// Dr.Mogilnitskaya</div>
+            <div class="main-title-line km-clinic" id="clinicName" style="font-size: 3.6rem; letter-spacing: 6px; transform: translateX(35px); transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);">Is Clinical</div>
         </div>
         <div class="scroll-down" id="scrollBtn">Листайте вниз<svg class="arrow-icon-svg" viewBox="0 0 10 10"><polyline points="1,3 5,7 9,3" style="fill:none; stroke:black; stroke-width:1.2;"/></svg></div>
     </div>
@@ -817,60 +1000,45 @@
 
 <div class="second-screen" id="secondScreen">
     <div class="invitation-container">
-        <div class="title-wrapper" id="titleWrapper">
-            <span class="title-line">ДОРОГИЕ ГОСТИ!</span>
-            <span class="title-line">ПРИГЛАШАЕМ ВАС</span>
-        </div>
-        <div class="save-the-date">Save the date!</div>
-        <p class="description-text">Приглашаем вас на уникальный бьюти-девичник. Вас ждут разбор поэтапного ухода за кожей с тестом продуктов, мастер-класс по свежему макияжу, мороженое от Ice Bar и коктейли от бармена в итальянском настроении.</p>
+        <h2 class="greeting-title" id="greetingTitle">Дорогие гости!</h2>
+        <div class="save-the-date" id="saveTheDate">Save the date!</div>
+        <p class="description-text" id="descriptionText">Приглашаем вас на уникальный бьюти-девичник. Вас ждут разбор поэтапного ухода за кожей с тестом продуктов, мастер-класс по свежему макияжу, мороженое от Ice Bar и коктейли от бармена в итальянском настроении.</p>
         <div class="line line-top"></div>
         <div class="date-block">
             <span class="date-number from-left-1">20</span><span class="dot">.</span><span class="date-number from-right">08</span><span class="dot">.</span><span class="date-number from-left-2">2026</span>
         </div>
+        <div class="gathering-time" id="gatheringTime"><span>Начало в 12:00</span></div>
         <div class="line line-bottom"></div>
-        <div class="date-block" style="margin-top: 10px; font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 300; color: #555;">
-            <span class="date-number from-left-1" style="font-family: 'Montserrat', sans-serif; font-size: 1.2rem;">Начало в 12:00</span>
-        </div>
     </div>
 </div>
 
-<!-- ЛОКАЦИЯ с IMG_9099.WEBP -->
 <div class="location-section" id="locationSection">
     <div class="location-bg"></div>
-    <div class="location-card">
-        <div class="icon-scene">
-            <svg viewBox="0 0 24 24" width="50" height="50" fill="none" stroke="#1a1a1a" stroke-width="1.5">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                <circle cx="12" cy="9" r="2.5" stroke="#1a1a1a" stroke-width="1.5"/>
-            </svg>
-        </div>
-        <h2 class="location-title">МЕСТО<br>ПРОВЕДЕНИЯ</h2>
-        <div class="save-the-place">Save the place!</div>
-        <p class="venue-name">Space Hub // Якуба Колоса, 1</p>
-        <p class="venue-address">Минск, Беларусь</p>
-        <a href="https://maps.google.com/?q=Якуба+Колоса+1+Минск" target="_blank" class="btn-maps">Как добраться</a>
+    <div class="location-content">
+        <h2 class="location-title" id="locTitle">Место проведения</h2>
+        <div class="save-the-place" id="savePlace">Save the place!</div>
+        <p class="venue-line" id="venueLine"><strong>Space Hub // Якуба Колоса, 1</strong></p>
+        <a href="https://maps.google.com/?q=Якуба+Колоса+1" target="_blank" class="btn-maps" id="mapBtn">Как добраться</a>
     </div>
 </div>
 
 <div class="speakers-screen" id="speakersScreen">
     <div class="speakers-container">
         <h2 class="speakers-title" id="speakersTitle">Программа</h2>
-
         <div class="speaker-card" id="speaker1">
             <div class="speaker-name">Блок 1</div>
             <div class="speaker-role">Разбор поэтапного ухода за кожей</div>
             <div class="speaker-theme">
-                <strong>Детали:</strong><br>
+                <strong>Детали:</strong>
                 Тестирование продуктов Is Clinical<br>
                 Индивидуальные рекомендации
             </div>
         </div>
-
         <div class="speaker-card" id="speaker2">
             <div class="speaker-name">Блок 2</div>
             <div class="speaker-role">Мастер-класс «Fresh Make-up»</div>
             <div class="speaker-theme">
-                <strong>Детали:</strong><br>
+                <strong>Детали:</strong>
                 Свежий дневной макияж<br>
                 Секреты визажиста для сияющей кожи
             </div>
@@ -878,134 +1046,127 @@
     </div>
 </div>
 
-<div class="dresscode-screen" id="dresscodeScreen">
-    <div class="dresscode-container">
-        <h1 class="dresscode-main-title" id="dresscodeMainTitle">Атмосфера</h1>
-        <div class="dresscode-tagline" id="dresscodeTagline">Italian vibe • beauty • девичник</div>
-        <p class="dresscode-description" id="dresscodeDescription">Угощения: мороженое Ice Bar, коктейли от бармена. Итальянское настроение и лёгкость.</p>
-
+<div class="vibe-screen" id="vibeScreen">
+    <div class="vibe-container">
+        <h1 class="vibe-title" id="vibeTitle">Атмосфера</h1>
+        <p class="vibe-tagline" id="vibeTagline">Italian vibe • beauty • девичник</p>
         <div class="vibe-grid">
-            <div class="vibe-item girls" id="vibe1"><span class="icon-text">Beauty</span><span class="label">Уход</span></div>
-            <div class="vibe-item experts" id="vibe2"><span class="icon-text">Make-up</span><span class="label">Макияж</span></div>
-            <div class="vibe-item dj" id="vibe3"><span class="icon-text">Ice Bar</span><span class="label">Мороженое</span></div>
-            <div class="vibe-item icecream" id="vibe4"><span class="icon-text">Vibes</span><span class="label">Настроение</span></div>
-            <div class="vibe-item prosecco" id="vibe5"><span class="icon-text">Prosecco</span><span class="label">Коктейли</span></div>
-            <div class="vibe-item" style="background: #f0f0f0;" id="vibe6"><span class="icon-text">Italy</span><span class="label">Декор</span></div>
+            <div class="vibe-photo" id="vibe1"></div>
+            <div class="vibe-photo" id="vibe2"></div>
+            <div class="vibe-photo" id="vibe3"></div>
         </div>
+        <p style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 300; color: #888; margin-top: 10px; letter-spacing: 0.5px;">Угощения: мороженое Ice Bar, коктейли от бармена. Итальянское настроение и лёгкость.</p>
     </div>
 </div>
 
-<!-- ФИНАЛЬНЫЙ БЛОК -->
-<div class="final-screen" id="finalScreen">
-    <div class="final-container">
-        <div class="final-names-block">
-            <span class="final-name-item final-animate" id="kmFinal">Me. Dr.Mogilnitskaya</span>
-            <span class="final-ampersand-item final-animate" id="ampersandFinal">//</span>
-            <span class="final-name-item final-animate" id="taglineFinal" style="font-size: 2rem; font-weight: 300;">WOW BRUNCH</span>
-        </div>
-        <div class="final-photo-container final-animate" id="finalPhotoBlock">
-            <div class="final-photo"></div>
-        </div>
-    </div>
-</div>
-
-<!-- АНКЕТА ГОСТЯ -->
 <div class="rsvp-screen" id="rsvpScreen">
     <div class="rsvp-container">
         <h2 class="rsvp-title">Анкета гостя</h2>
-        <div class="rsvp-subtitle">Please, RSVP</div>
+        <div class="rsvp-subtitle" id="rsvpSubtitle">Пожалуйста, заполните анкету</div>
         <form id="guestForm" action="https://formspree.io/f/mkodbodq" method="POST">
-            <div class="form-group">
+            <div class="form-group" id="fg1">
                 <label>Ваше имя и фамилия</label>
-                <input type="text" name="Имя и фамилия" id="guestName" placeholder="Например, Анна Петрова" required>
+                <input type="text" name="Имя и фамилия" id="guestName" placeholder="Иванова Анна" required>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="fg2">
                 <label>Планируете присутствовать?</label>
                 <div class="radio-group">
                     <label><input type="radio" name="Присутствие" value="Да, с радостью!" required> Да, с радостью!</label>
                     <label><input type="radio" name="Присутствие" value="Нет, к сожалению"> К сожалению, нет</label>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="fg3">
                 <label>Ваш номер телефона</label>
-                <input type="tel" name="Номер телефона" id="guestPhone" placeholder="+7 (___)-___-__-__" required>
+                <input type="tel" name="Номер телефона" id="guestPhone" placeholder="+7 999 999-99-99" required>
             </div>
-            <button type="submit" class="submit-btn">Отправить ответ</button>
-            <div id="formMessage" class="hidden-message">Спасибо! Ждём вас на мероприятии</div>
+            <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
         </form>
     </div>
 </div>
 
-<!-- КОНТАКТЫ -->
-<div class="contacts-screen" id="contactsScreen">
-    <div class="contacts-container">
-        <h2 class="contacts-title">Контакты</h2>
-        <div class="contacts-subtitle">По всем вопросам обращайтесь к организаторам</div>
-        <div class="contacts-list">
-            <div class="contact-item">
-                <div class="contact-role">Организатор</div>
-                <div class="contact-info"><a href="tel:+79085997925">+7 (908) 599-79-25</a></div>
-            </div>
+<footer class="footer" id="footer">
+    <div class="footer-container">
+        <div class="footer-name" id="footerName">
+            me.<span class="ampersand"> // </span>mogilnitskaya
         </div>
-        <div class="contacts-divider"></div>
-        <div class="contacts-copyright">Me. Dr.Mogilnitskaya // WOW BRUNCH</div>
+        <div class="footer-photo" id="footerPhoto"></div>
+    </div>
+</footer>
+
+<!-- УВЕДОМЛЕНИЕ ПО ЦЕНТРУ -->
+<div class="toast-overlay" id="toastOverlay">
+    <div class="toast-modal">
+        <span class="toast-icon">✓</span>
+        <span class="toast-title">Анкета отправлена</span>
+        <span class="toast-sub">Спасибо! Ждём вас на мероприятии</span>
+        <div class="toast-timer-bar">
+            <div class="timer-fill" id="timerFill"></div>
+        </div>
     </div>
 </div>
 
 <script>
     (function() {
+        // ПЕРВЫЙ ЭКРАН
         const firstObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     setTimeout(() => document.getElementById('photoBg')?.classList.add('visible'), 100);
-                    setTimeout(() => document.getElementById('eventScript')?.classList.add('visible'), 800);
-                    setTimeout(() => document.getElementById('kmName')?.classList.add('visible'), 1400);
-                    setTimeout(() => document.getElementById('taglineSign')?.classList.add('visible'), 1750);
-                    setTimeout(() => document.getElementById('clinicName')?.classList.add('visible'), 2100);
+                    setTimeout(() => document.getElementById('eventScript')?.classList.add('visible'), 600);
+                    setTimeout(() => document.getElementById('kmClinicName')?.classList.add('visible'), 1100);
+                    setTimeout(() => document.getElementById('taglineSign')?.classList.add('visible'), 1450);
+                    setTimeout(() => document.getElementById('clinicName')?.classList.add('visible'), 1800);
                     firstObserver.disconnect();
                 }
             });
         }, { threshold: 0.1 });
         firstObserver.observe(document.getElementById('firstScreen'));
 
+        // ПРИГЛАШЕНИЕ
         const secondContainer = document.querySelector('.invitation-container');
         if (secondContainer) {
             new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        document.querySelector('.title-wrapper')?.classList.add('visible');
-                        setTimeout(() => document.querySelector('.save-the-date')?.classList.add('visible'), 200);
-                        setTimeout(() => document.querySelector('.description-text')?.classList.add('visible'), 400);
-                        setTimeout(() => document.querySelector('.line-top')?.classList.add('visible'), 600);
-                        setTimeout(() => document.querySelectorAll('.date-number').forEach(el => el.classList.add('visible')), 900);
-                        setTimeout(() => document.querySelectorAll('.dot').forEach(el => el.classList.add('visible')), 1200);
-                        setTimeout(() => document.querySelector('.line-bottom')?.classList.add('visible'), 1500);
+                        setTimeout(() => document.getElementById('greetingTitle')?.classList.add('visible'), 100);
+                        setTimeout(() => document.getElementById('saveTheDate')?.classList.add('visible'), 300);
+                        setTimeout(() => document.getElementById('descriptionText')?.classList.add('visible'), 500);
+                        setTimeout(() => document.querySelector('.line-top')?.classList.add('visible'), 700);
+                        setTimeout(() => document.querySelectorAll('.date-number').forEach(el => el.classList.add('visible')), 1000);
+                        setTimeout(() => document.querySelectorAll('.dot').forEach(el => el.classList.add('visible')), 1300);
+                        setTimeout(() => document.getElementById('gatheringTime')?.classList.add('visible'), 1500);
+                        setTimeout(() => document.querySelector('.line-bottom')?.classList.add('visible'), 1800);
                         observer.disconnect();
                     }
                 });
             }, { threshold: 0.2 }).observe(secondContainer);
         }
 
+        // ЛОКАЦИЯ
         const locSec = document.getElementById('locationSection');
         if (locSec) {
             new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) {
-                        locSec.classList.add('visible');
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => document.getElementById('locTitle')?.classList.add('visible'), 200);
+                        setTimeout(() => document.getElementById('savePlace')?.classList.add('visible'), 400);
+                        setTimeout(() => document.getElementById('venueLine')?.classList.add('visible'), 600);
+                        setTimeout(() => document.getElementById('mapBtn')?.classList.add('visible'), 800);
                         observer.disconnect();
                     }
                 });
             }, { threshold: 0.3 }).observe(locSec);
         }
 
+        // СПИКЕРЫ
         const speakersScreen = document.getElementById('speakersScreen');
         if (speakersScreen) {
             const spObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         document.getElementById('speakersTitle')?.classList.add('visible');
-                        setTimeout(() => document.getElementById('speaker1')?.classList.add('visible'), 300);
-                        setTimeout(() => document.getElementById('speaker2')?.classList.add('visible'), 600);
+                        setTimeout(() => document.getElementById('speaker1')?.classList.add('visible'), 400);
+                        setTimeout(() => document.getElementById('speaker2')?.classList.add('visible'), 800);
                         spObs.disconnect();
                     }
                 });
@@ -1013,45 +1174,42 @@
             spObs.observe(speakersScreen);
         }
 
-        const dressScreen = document.getElementById('dresscodeScreen');
-        if (dressScreen) {
-            const drObs = new IntersectionObserver((entries) => {
+        // АТМОСФЕРА (фото в ряд)
+        const vibeScreen = document.getElementById('vibeScreen');
+        if (vibeScreen) {
+            const vObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        document.getElementById('dresscodeMainTitle')?.classList.add('visible');
-                        document.getElementById('dresscodeTagline')?.classList.add('visible');
-                        document.getElementById('dresscodeDescription')?.classList.add('visible');
-                        document.querySelectorAll('.vibe-item').forEach((el, i) => {
-                            setTimeout(() => el.classList.add('visible'), 400 + i * 150);
+                        document.getElementById('vibeTitle')?.classList.add('visible');
+                        document.getElementById('vibeTagline')?.classList.add('visible');
+                        document.querySelectorAll('.vibe-photo').forEach((el, i) => {
+                            setTimeout(() => el.classList.add('visible'), 300 + i * 150);
                         });
-                        drObs.disconnect();
+                        vObs.disconnect();
                     }
                 });
             }, { threshold: 0.3 });
-            drObs.observe(dressScreen);
+            vObs.observe(vibeScreen);
         }
 
-        const finalScreen = document.getElementById('finalScreen');
-        if (finalScreen) {
-            const finalObs = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        document.querySelectorAll('.final-animate').forEach((el, i) => {
-                            setTimeout(() => el.classList.add('visible'), 300 + i * 300);
-                        });
-                        finalObs.disconnect();
-                    }
-                });
-            }, { threshold: 0.3 });
-            finalObs.observe(finalScreen);
-        }
-
+        // АНКЕТА
         const rsvpScreen = document.getElementById('rsvpScreen');
         if (rsvpScreen) {
             const rsvpObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        rsvpScreen.classList.add('visible');
+                        setTimeout(() => {
+                            document.getElementById('rsvpSubtitle')?.classList.add('visible');
+                        }, 200);
+                        const fields = ['fg1', 'fg2', 'fg3'];
+                        fields.forEach((id, i) => {
+                            setTimeout(() => {
+                                document.getElementById(id)?.classList.add('visible');
+                            }, 400 + i * 200);
+                        });
+                        setTimeout(() => {
+                            document.getElementById('submitBtn')?.classList.add('visible');
+                        }, 1000);
                         rsvpObserver.disconnect();
                     }
                 });
@@ -1059,24 +1217,49 @@
             rsvpObserver.observe(rsvpScreen);
         }
 
-        const contactsScreen = document.getElementById('contactsScreen');
-        if (contactsScreen) {
-            const contactsObserver = new IntersectionObserver((entries) => {
+        // ФУТЕР
+        const footer = document.getElementById('footer');
+        if (footer) {
+            const footerObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        contactsScreen.classList.add('visible');
-                        contactsObserver.disconnect();
+                        setTimeout(() => document.getElementById('footerName')?.classList.add('visible'), 300);
+                        setTimeout(() => document.getElementById('footerPhoto')?.classList.add('visible'), 700);
+                        footerObs.disconnect();
                     }
                 });
             }, { threshold: 0.2 });
-            contactsObserver.observe(contactsScreen);
+            footerObs.observe(footer);
         }
 
-        document.getElementById('scrollBtn')?.addEventListener('click', () => { document.getElementById('secondScreen')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+        // КНОПКА СКРОЛЛА
+        document.getElementById('scrollBtn')?.addEventListener('click', () => {
+            document.getElementById('secondScreen')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
 
+        // ТОСТ
+        const overlay = document.getElementById('toastOverlay');
+        const timerFill = document.getElementById('timerFill');
+        let toastTimeout = null;
+
+        function showToast() {
+            if (toastTimeout) {
+                clearTimeout(toastTimeout);
+                toastTimeout = null;
+            }
+            overlay.classList.add('show');
+            timerFill.classList.remove('shrink');
+            void timerFill.offsetWidth;
+            timerFill.classList.add('shrink');
+            toastTimeout = setTimeout(() => {
+                overlay.classList.remove('show');
+                timerFill.classList.remove('shrink');
+                toastTimeout = null;
+            }, 5000);
+        }
+
+        // ФОРМА
         const form = document.getElementById('guestForm');
-        const messageDiv = document.getElementById('formMessage');
-
         if (form) {
             form.addEventListener('submit', function(e) {
                 const nameInput = document.getElementById('guestName');
@@ -1085,33 +1268,24 @@
                     alert('Пожалуйста, укажите ваше имя');
                     return;
                 }
-
                 e.preventDefault();
-
                 const formData = new FormData(form);
                 fetch(form.action, {
                     method: 'POST',
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(response => {
                     if (response.ok) {
-                        messageDiv.style.display = 'block';
+                        showToast();
                         form.reset();
-
-                        const allRadios = form.querySelectorAll('input[type="radio"]');
-                        allRadios.forEach(function(radio) {
-                            radio.checked = false;
-                        });
-
-                        setTimeout(function() {
-                            messageDiv.style.display = 'none';
-                        }, 4000);
+                        const radios = form.querySelectorAll('input[type="radio"]');
+                        radios.forEach(r => r.checked = false);
                     } else {
                         alert('Произошла ошибка. Пожалуйста, попробуйте еще раз.');
                     }
-                }).catch(error => {
+                })
+                .catch(() => {
                     alert('Произошла ошибка. Пожалуйста, попробуйте еще раз.');
                 });
             });
@@ -1121,24 +1295,12 @@
             const form = document.getElementById('guestForm');
             if (form) {
                 form.reset();
-
-                const allRadios = form.querySelectorAll('input[type="radio"]');
-                allRadios.forEach(function(radio) {
-                    radio.checked = false;
-                });
-
-                const messageDiv = document.getElementById('formMessage');
-                if (messageDiv) {
-                    messageDiv.style.display = 'block';
-                    setTimeout(function() {
-                        messageDiv.style.display = 'none';
-                    }, 4000);
-                }
-
-                if (window.history && window.history.replaceState) {
-                    const cleanUrl = window.location.href.split('?')[0];
-                    window.history.replaceState({}, document.title, cleanUrl);
-                }
+                const radios = form.querySelectorAll('input[type="radio"]');
+                radios.forEach(r => r.checked = false);
+                showToast();
+            }
+            if (window.history && window.history.replaceState) {
+                window.history.replaceState({}, document.title, window.location.href.split('?')[0]);
             }
         }
     })();
