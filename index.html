@@ -115,20 +115,21 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            padding: 2rem;
+            padding: 3rem 2rem 2rem;
         }
 
         .event-script {
             font-family: 'Parisienne', cursive;
             font-size: 2.8rem;
-            color: rgba(255,248,235,0.92);
+            color: #ffffff;
             text-shadow: 0 1px 8px rgba(0,0,0,0.2);
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
-            margin-bottom: 1.5rem;
+            margin-top: 2vh;
+            margin-bottom: 2rem;
         }
 
         .event-script.visible {
@@ -221,11 +222,13 @@
             .main-title-line.name-line { font-size: 2.4rem; letter-spacing: 2px; }
             .main-title-line.sub-line { font-size: 1.4rem; letter-spacing: 3px; }
             .event-script { font-size: 1.8rem; }
+            .content-first { padding: 2rem 1.5rem 1.5rem; }
         }
         @media (max-width: 480px) {
             .main-title-line.name-line { font-size: 1.8rem; letter-spacing: 2px; }
             .main-title-line.sub-line { font-size: 1.1rem; letter-spacing: 2px; }
             .event-script { font-size: 1.5rem; }
+            .content-first { padding: 1.5rem 1rem 1rem; }
         }
 
         /* ----- ВТОРОЙ ЭКРАН ----- */
@@ -610,7 +613,7 @@
             }
         }
 
-        /* ----- АТМОСФЕРА (фото в длину без обрезки) ----- */
+        /* ----- АТМОСФЕРА (фото в длину без обрезки, одинакового размера) ----- */
         .vibe-screen {
             background: #fff;
             padding: 35px 16px 45px;
@@ -674,11 +677,13 @@
             display: flex;
             gap: 12px;
             justify-content: center;
+            align-items: center;
             flex-wrap: nowrap;
         }
 
         .vibe-grid .vibe-photo {
-            flex: 0 0 calc(33.333% - 8px);
+            flex: 1 1 0;
+            min-width: 0;
             aspect-ratio: 1 / 1.4;
             max-width: 160px;
             background-size: contain;
@@ -688,6 +693,7 @@
             transform: scale(0.92);
             transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1);
             background-color: #fafafa;
+            border-radius: 2px;
         }
 
         .vibe-grid .vibe-photo.visible {
@@ -701,7 +707,6 @@
 
         @media (max-width: 480px) {
             .vibe-grid .vibe-photo {
-                flex: 0 0 calc(33.333% - 6px);
                 max-width: 120px;
                 aspect-ratio: 1 / 1.3;
             }
@@ -1057,7 +1062,7 @@
             </div>
             <div class="form-group" id="fg3">
                 <label>Ваш номер телефона</label>
-                <input type="tel" name="Номер телефона" id="guestPhone" placeholder="+7 999 999-99-99" required>
+                <input type="tel" name="Номер телефона" id="guestPhone" placeholder="+375 29 123-45-67" required>
             </div>
             <button type="submit" class="submit-btn" id="submitBtn">Отправить ответ</button>
         </form>
