@@ -141,18 +141,18 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 0.1rem;
+            gap: 0.3rem;
         }
 
         .main-title-line {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
             font-weight: 300;
-            letter-spacing: 10px;
+            letter-spacing: 6px;
             text-transform: uppercase;
             color: #fffcf5;
             text-shadow: 0 2px 14px rgba(0,0,0,0.45);
             opacity: 0;
-            line-height: 1.1;
+            line-height: 1.2;
             transform: translateX(-35px);
             transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);
         }
@@ -162,9 +162,14 @@
             transform: translateX(0);
         }
 
-        .main-title-line.km-clinic {
-            font-size: 5rem;
-            letter-spacing: 10px;
+        .main-title-line.name-line {
+            font-size: 4.2rem;
+            letter-spacing: 4px;
+        }
+
+        .main-title-line.sub-line {
+            font-size: 3.2rem;
+            letter-spacing: 6px;
         }
 
         .tagline-center {
@@ -225,17 +230,20 @@
         }
 
         @media (max-width: 768px) {
-            .main-title-line.km-clinic { font-size: 3.8rem; letter-spacing: 6px; }
+            .main-title-line.name-line { font-size: 3.2rem; letter-spacing: 3px; }
+            .main-title-line.sub-line { font-size: 2.4rem; letter-spacing: 4px; }
             .tagline-center { font-size: 2rem; }
             .event-script { font-size: 2.2rem; }
         }
         @media (max-width: 580px) {
-            .main-title-line.km-clinic { font-size: 2.8rem; letter-spacing: 4px; }
+            .main-title-line.name-line { font-size: 2.4rem; letter-spacing: 2px; }
+            .main-title-line.sub-line { font-size: 1.8rem; letter-spacing: 3px; }
             .tagline-center { font-size: 1.6rem; }
             .event-script { font-size: 1.8rem; }
         }
         @media (max-width: 480px) {
-            .main-title-line.km-clinic { font-size: 2.2rem; letter-spacing: 3px; }
+            .main-title-line.name-line { font-size: 1.8rem; letter-spacing: 2px; }
+            .main-title-line.sub-line { font-size: 1.4rem; letter-spacing: 2px; }
             .tagline-center { font-size: 1.3rem; }
             .event-script { font-size: 1.5rem; }
         }
@@ -398,13 +406,13 @@
             opacity: 1;
         }
 
-        /* ----- ЛОКАЦИЯ ----- */
+        /* ----- ЛОКАЦИЯ (расширенная) ----- */
         .location-section {
             position: relative;
-            padding: 40px 25px;
+            padding: 50px 25px;
             background: #ffffff;
             overflow: hidden;
-            min-height: 350px;
+            min-height: 400px;
             display: flex;
             align-items: center;
         }
@@ -423,11 +431,13 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            max-width: 450px;
+            max-width: 480px;
             margin: 0 auto;
             text-align: center;
-            background: rgba(255, 255, 255, 0.88);
-            padding: 30px 25px;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 40px 30px 35px;
+            border-radius: 4px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
         }
 
         .location-title {
@@ -451,7 +461,7 @@
             font-family: 'Pinyon Script', cursive;
             font-size: clamp(2rem, 5vw, 2.5rem);
             font-weight: 400;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             display: inline-block;
             transform: skewX(-3deg) translateX(50px);
             opacity: 0;
@@ -465,10 +475,10 @@
 
         .venue-line {
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 400;
             color: #333;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             opacity: 0;
             transform: translateY(45px);
             transition: opacity 2.5s cubic-bezier(0.16,1,0.3,1.1), transform 2.5s cubic-bezier(0.16,1,0.3,1.1);
@@ -485,6 +495,10 @@
             white-space: nowrap;
         }
 
+        .venue-spacer {
+            height: 18px;
+        }
+
         .btn-maps {
             display: inline-block;
             background: #1a1a1a;
@@ -494,11 +508,12 @@
             font-size: 0.7rem;
             font-weight: 400;
             letter-spacing: 2px;
-            padding: 10px 28px;
+            padding: 12px 32px;
             text-transform: uppercase;
             opacity: 0;
             transform: translateY(45px);
             transition: opacity 2.8s cubic-bezier(0.16,1,0.3,1.1), transform 2.8s cubic-bezier(0.16,1,0.3,1.1);
+            margin-top: 6px;
         }
 
         .btn-maps.visible {
@@ -508,6 +523,22 @@
 
         .btn-maps:hover {
             background: #333;
+        }
+
+        @media (max-width: 480px) {
+            .location-content {
+                padding: 30px 20px 28px;
+            }
+            .venue-line {
+                font-size: 0.85rem;
+            }
+            .btn-maps {
+                padding: 10px 24px;
+                font-size: 0.65rem;
+            }
+            .venue-spacer {
+                height: 14px;
+            }
         }
 
         /* ----- СПИКЕРЫ ----- */
@@ -599,7 +630,7 @@
             }
         }
 
-        /* ----- АТМОСФЕРА (фото в ряд) ----- */
+        /* ----- АТМОСФЕРА ----- */
         .vibe-screen {
             background: #fff;
             padding: 35px 16px 45px;
@@ -607,7 +638,7 @@
 
         .vibe-container {
             width: 100%;
-            max-width: 450px;
+            max-width: 500px;
             margin: 0 auto;
             text-align: center;
         }
@@ -629,7 +660,7 @@
             font-family: 'Pinyon Script', cursive;
             font-size: 1.8rem;
             color: #1a1a1a;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             opacity: 0;
             transform: translateY(35px);
             transition: opacity 2s cubic-bezier(0.25,0.8,0.4,1), transform 2s cubic-bezier(0.25,0.8,0.4,1);
@@ -641,15 +672,35 @@
             transform: translateY(0);
         }
 
+        .vibe-description {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.6;
+            max-width: 380px;
+            margin: 0 auto 20px;
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 1.2s cubic-bezier(0.2,0.9,0.3,1.1), transform 1.2s cubic-bezier(0.2,0.9,0.3,1.1);
+        }
+
+        .vibe-description.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .vibe-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin: 15px 0;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: nowrap;
         }
 
         .vibe-grid .vibe-photo {
+            flex: 0 0 calc(33.333% - 8px);
             aspect-ratio: 1 / 1;
+            max-width: 160px;
             background-size: cover;
             background-position: center;
             opacity: 0;
@@ -667,10 +718,19 @@
         .vibe-grid .vibe-photo:nth-child(3) { background-image: url('image_2026-08-05_20-56-24.png'); }
 
         @media (max-width: 480px) {
-            .vibe-grid { gap: 5px; }
+            .vibe-grid .vibe-photo {
+                flex: 0 0 calc(33.333% - 6px);
+                max-width: 120px;
+            }
+            .vibe-grid {
+                gap: 8px;
+            }
+            .vibe-description {
+                font-size: 0.75rem;
+            }
         }
 
-        /* ----- АНКЕТА (как в примере) ----- */
+        /* ----- АНКЕТА ----- */
         .rsvp-screen {
             background: #ffffff;
             padding: 40px 20px;
@@ -820,64 +880,7 @@
             }
         }
 
-        /* ----- ФУТЕР (me.mogilnitskaya + фото) ----- */
-        .footer {
-            padding: 30px 20px 35px;
-            text-align: center;
-            background: #fff;
-        }
-
-        .footer-container {
-            max-width: 450px;
-            margin: 0 auto;
-        }
-
-        .footer-name {
-            font-family: 'Lighthaus', 'Quicksand', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 300;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #1a1a1a;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 1.5s cubic-bezier(0.2,0.9,0.3,1.1);
-        }
-
-        .footer-name.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .footer-name .ampersand {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 2.6rem;
-            font-weight: 400;
-            color: #1a1a1a;
-        }
-
-        .footer-photo {
-            width: 100%;
-            max-width: 400px;
-            margin: 16px auto 0;
-            aspect-ratio: 3 / 2;
-            background-image: url('конец.png');
-            background-size: cover;
-            background-position: center;
-            background-color: #f5f5f5;
-            border-radius: 16px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 1.8s cubic-bezier(0.2,0.9,0.3,1.1);
-        }
-
-        .footer-photo.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ----- УВЕДОМЛЕНИЕ (белый фон, по центру) ----- */
+        /* ----- УВЕДОМЛЕНИЕ ----- */
         .toast-overlay {
             position: fixed;
             inset: 0;
@@ -973,12 +976,6 @@
             .toast-modal .toast-icon {
                 font-size: 36px;
             }
-            .footer-name {
-                font-size: 1.6rem;
-            }
-            .footer-name .ampersand {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
@@ -990,9 +987,8 @@
     <div class="content-first">
         <div class="event-script" id="eventScript">WOW BRUNCH</div>
         <div class="main-title-block">
-            <div class="main-title-line km-clinic" id="kmClinicName">Me.</div>
-            <div class="tagline-center" id="taglineSign">// Dr.Mogilnitskaya</div>
-            <div class="main-title-line km-clinic" id="clinicName" style="font-size: 3.6rem; letter-spacing: 6px; transform: translateX(35px); transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1);">Is Clinical</div>
+            <div class="main-title-line name-line" id="nameLine">Me. Dr.Mogilnitskaya</div>
+            <div class="main-title-line sub-line" id="subLine">// Is Clinical</div>
         </div>
         <div class="scroll-down" id="scrollBtn">Листайте вниз<svg class="arrow-icon-svg" viewBox="0 0 10 10"><polyline points="1,3 5,7 9,3" style="fill:none; stroke:black; stroke-width:1.2;"/></svg></div>
     </div>
@@ -1018,6 +1014,7 @@
         <h2 class="location-title" id="locTitle">Место проведения</h2>
         <div class="save-the-place" id="savePlace">Save the place!</div>
         <p class="venue-line" id="venueLine"><strong>Space Hub // Якуба Колоса, 1</strong></p>
+        <div class="venue-spacer"></div>
         <a href="https://maps.google.com/?q=Якуба+Колоса+1" target="_blank" class="btn-maps" id="mapBtn">Как добраться</a>
     </div>
 </div>
@@ -1050,12 +1047,12 @@
     <div class="vibe-container">
         <h1 class="vibe-title" id="vibeTitle">Атмосфера</h1>
         <p class="vibe-tagline" id="vibeTagline">Italian vibe • beauty • девичник</p>
+        <p class="vibe-description" id="vibeDesc">Угощения: мороженое Ice Bar, коктейли от бармена. Итальянское настроение и лёгкость.</p>
         <div class="vibe-grid">
             <div class="vibe-photo" id="vibe1"></div>
             <div class="vibe-photo" id="vibe2"></div>
             <div class="vibe-photo" id="vibe3"></div>
         </div>
-        <p style="font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 300; color: #888; margin-top: 10px; letter-spacing: 0.5px;">Угощения: мороженое Ice Bar, коктейли от бармена. Итальянское настроение и лёгкость.</p>
     </div>
 </div>
 
@@ -1084,15 +1081,6 @@
     </div>
 </div>
 
-<footer class="footer" id="footer">
-    <div class="footer-container">
-        <div class="footer-name" id="footerName">
-            me.<span class="ampersand"> // </span>mogilnitskaya
-        </div>
-        <div class="footer-photo" id="footerPhoto"></div>
-    </div>
-</footer>
-
 <!-- УВЕДОМЛЕНИЕ ПО ЦЕНТРУ -->
 <div class="toast-overlay" id="toastOverlay">
     <div class="toast-modal">
@@ -1113,9 +1101,8 @@
                 if (entry.isIntersecting) {
                     setTimeout(() => document.getElementById('photoBg')?.classList.add('visible'), 100);
                     setTimeout(() => document.getElementById('eventScript')?.classList.add('visible'), 600);
-                    setTimeout(() => document.getElementById('kmClinicName')?.classList.add('visible'), 1100);
-                    setTimeout(() => document.getElementById('taglineSign')?.classList.add('visible'), 1450);
-                    setTimeout(() => document.getElementById('clinicName')?.classList.add('visible'), 1800);
+                    setTimeout(() => document.getElementById('nameLine')?.classList.add('visible'), 1100);
+                    setTimeout(() => document.getElementById('subLine')?.classList.add('visible'), 1500);
                     firstObserver.disconnect();
                 }
             });
@@ -1151,7 +1138,7 @@
                         setTimeout(() => document.getElementById('locTitle')?.classList.add('visible'), 200);
                         setTimeout(() => document.getElementById('savePlace')?.classList.add('visible'), 400);
                         setTimeout(() => document.getElementById('venueLine')?.classList.add('visible'), 600);
-                        setTimeout(() => document.getElementById('mapBtn')?.classList.add('visible'), 800);
+                        setTimeout(() => document.getElementById('mapBtn')?.classList.add('visible'), 900);
                         observer.disconnect();
                     }
                 });
@@ -1174,7 +1161,7 @@
             spObs.observe(speakersScreen);
         }
 
-        // АТМОСФЕРА (фото в ряд)
+        // АТМОСФЕРА
         const vibeScreen = document.getElementById('vibeScreen');
         if (vibeScreen) {
             const vObs = new IntersectionObserver((entries) => {
@@ -1182,8 +1169,9 @@
                     if (entry.isIntersecting) {
                         document.getElementById('vibeTitle')?.classList.add('visible');
                         document.getElementById('vibeTagline')?.classList.add('visible');
+                        setTimeout(() => document.getElementById('vibeDesc')?.classList.add('visible'), 400);
                         document.querySelectorAll('.vibe-photo').forEach((el, i) => {
-                            setTimeout(() => el.classList.add('visible'), 300 + i * 150);
+                            setTimeout(() => el.classList.add('visible'), 600 + i * 180);
                         });
                         vObs.disconnect();
                     }
@@ -1215,21 +1203,6 @@
                 });
             }, { threshold: 0.2 });
             rsvpObserver.observe(rsvpScreen);
-        }
-
-        // ФУТЕР
-        const footer = document.getElementById('footer');
-        if (footer) {
-            const footerObs = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => document.getElementById('footerName')?.classList.add('visible'), 300);
-                        setTimeout(() => document.getElementById('footerPhoto')?.classList.add('visible'), 700);
-                        footerObs.disconnect();
-                    }
-                });
-            }, { threshold: 0.2 });
-            footerObs.observe(footer);
         }
 
         // КНОПКА СКРОЛЛА
