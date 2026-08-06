@@ -613,20 +613,20 @@
             }
         }
 
-        /* ----- АТМОСФЕРА (квадратные фото 1:1, хаотичный порядок) ----- */
-        .vibe-screen {
+        /* ----- ПРОГРАММА / ГАЛЕРЕЯ (как в примере) ----- */
+        .program-screen {
             background: #fff;
             padding: 35px 16px 45px;
         }
 
-        .vibe-container {
+        .program-container {
             width: 100%;
-            max-width: 500px;
+            max-width: 450px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .vibe-title {
+        .program-title {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
             font-weight: 400;
             font-size: clamp(1.8rem, 4vw, 2.2rem);
@@ -639,162 +639,99 @@
             transition: opacity 2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 2s cubic-bezier(0.25, 0.8, 0.4, 1);
         }
 
-        .vibe-title.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .vibe-tagline {
+        .program-tagline {
             font-family: 'Pinyon Script', cursive;
             font-size: 1.8rem;
             color: #1a1a1a;
-            margin-bottom: 6px;
+            margin-bottom: 20px;
             opacity: 0;
             transform: translateY(35px);
             transition: opacity 2s cubic-bezier(0.25,0.8,0.4,1), transform 2s cubic-bezier(0.25,0.8,0.4,1);
         }
 
-        .vibe-tagline.visible {
+        .program-title.visible,
+        .program-tagline.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .vibe-description {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: #555;
-            line-height: 1.6;
-            max-width: 380px;
-            margin: 0 auto 20px;
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 1.2s cubic-bezier(0.2,0.9,0.3,1.1), transform 1.2s cubic-bezier(0.2,0.9,0.3,1.1);
-        }
-
-        .vibe-description.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .vibe-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            justify-content: center;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        /* Хаотичный порядок: разные размеры и сдвиги */
-        .vibe-grid .vibe-photo {
-            aspect-ratio: 1 / 1;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transform: scale(0.92);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1), transform 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1);
-            background-color: #fafafa;
-            border-radius: 2px;
+        .gallery-grid {
+            position: relative;
             width: 100%;
+            aspect-ratio: 1 / 1.1;
+            max-height: 620px;
+            margin: 15px auto 0;
         }
 
-        .vibe-grid .vibe-photo.visible {
+        .gallery-card {
+            position: absolute;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #f8f8f8;
+            opacity: 0;
+            transform: scale(0.94);
+            transition: opacity 1.4s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.4s cubic-bezier(0.25, 0.8, 0.4, 1);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-radius: 2px;
+        }
+        .gallery-card.visible {
             opacity: 1;
             transform: scale(1);
         }
 
-        /* Фото 1 — левый верхний угол (заменено на новое) */
-        .vibe-grid .vibe-photo:nth-child(1) {
-            background-image: url('image_2026-08-06_22-16-13.png');
-            grid-column: 1 / 2;
-            grid-row: 1 / 2;
+        /* Расположение как в примере */
+        .gallery-card.card-center {
+            width: 60%;
+            height: 62%;
+            left: 20%;
+            top: 12%;
+            z-index: 10;
+        }
+        .gallery-card.card-left-top {
+            width: 40%;
+            height: 40%;
+            left: 2%;
+            top: 2%;
+            z-index: 4;
+        }
+        .gallery-card.card-right-top {
+            width: 40%;
+            height: 40%;
+            right: 2%;
+            top: 2%;
+            z-index: 2;
+        }
+        .gallery-card.card-left-bottom {
+            width: 44%;
+            height: 40%;
+            left: 2%;
+            bottom: 2%;
+            z-index: 5;
+        }
+        .gallery-card.card-right-bottom {
+            width: 44%;
+            height: 40%;
+            right: 2%;
+            bottom: 2%;
+            z-index: 3;
         }
 
-        /* Фото 2 — центр */
-        .vibe-grid .vibe-photo:nth-child(2) {
-            background-image: url('image_2026-08-05_20-51-48.png');
-            grid-column: 2 / 3;
-            grid-row: 1 / 2;
+        @media (max-width: 580px) {
+            .gallery-grid { aspect-ratio: 1 / 1.1; max-height: 480px; }
+            .gallery-card.card-center { width: 54%; height: 54%; left: 23%; top: 14%; }
+            .gallery-card.card-left-top { width: 36%; height: 36%; top: 2%; left: 2%; }
+            .gallery-card.card-right-top { width: 36%; height: 36%; top: 2%; right: 2%; }
+            .gallery-card.card-left-bottom { width: 40%; height: 38%; bottom: 2%; left: 2%; }
+            .gallery-card.card-right-bottom { width: 40%; height: 38%; bottom: 2%; right: 2%; }
         }
-
-        /* Фото 3 — правый верхний угол */
-        .vibe-grid .vibe-photo:nth-child(3) {
-            background-image: url('image_2026-08-05_20-56-24.png');
-            grid-column: 3 / 4;
-            grid-row: 1 / 2;
-        }
-
-        /* Фото 4 — новый снимок, занимает 2 колонки внизу */
-        .vibe-grid .vibe-photo:nth-child(4) {
-            background-image: url('image_2026-08-06_22-18-48.png');
-            grid-column: 1 / 3;
-            grid-row: 2 / 3;
-        }
-
-        /* Фото 5 — подарки от брендов (занимает правую часть внизу) */
-        .vibe-grid .vibe-photo:nth-child(5) {
-            background-image: url('gifts-brand.jpg');
-            background-size: cover;
-            background-position: center;
-            background-color: #e8ddd0;
-            background-image: linear-gradient(135deg, #e8ddd0 0%, #d5c8b8 100%);
-            grid-column: 3 / 4;
-            grid-row: 2 / 3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1a1a1a;
-            font-size: 0.7rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-        }
-
-        .vibe-grid .vibe-photo:nth-child(5)::after {
-            content: 'Подарки от брендов';
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(2px);
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            color: #1a1a1a;
-            text-transform: uppercase;
-            padding: 8px;
-            text-align: center;
-            line-height: 1.3;
-        }
-
-        /* Стили для мобильных */
-        @media (max-width: 480px) {
-            .vibe-grid {
-                gap: 8px;
-            }
-            .vibe-description {
-                font-size: 0.75rem;
-            }
-            .vibe-grid .vibe-photo:nth-child(5)::after {
-                font-size: 0.55rem;
-                letter-spacing: 1px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .vibe-grid {
-                gap: 6px;
-            }
-            .vibe-grid .vibe-photo:nth-child(5)::after {
-                font-size: 0.5rem;
-                letter-spacing: 0.5px;
-                padding: 4px;
-            }
+        @media (max-width: 420px) {
+            .gallery-grid { aspect-ratio: 1 / 1.1; max-height: 400px; }
+            .gallery-card.card-center { width: 48%; height: 48%; left: 26%; top: 16%; }
+            .gallery-card.card-left-top { width: 32%; height: 32%; top: 2%; left: 2%; }
+            .gallery-card.card-right-top { width: 32%; height: 32%; top: 2%; right: 2%; }
+            .gallery-card.card-left-bottom { width: 36%; height: 34%; bottom: 2%; left: 2%; }
+            .gallery-card.card-right-bottom { width: 36%; height: 34%; bottom: 2%; right: 2%; }
         }
 
         /* ----- АНКЕТА ----- */
@@ -1110,17 +1047,17 @@
     </div>
 </div>
 
-<div class="vibe-screen" id="vibeScreen">
-    <div class="vibe-container">
-        <h1 class="vibe-title" id="vibeTitle">Атмосфера</h1>
-        <p class="vibe-tagline" id="vibeTagline">sorbet • cocktails • Italian vibe</p>
-        <p class="vibe-description" id="vibeDesc">Угощения: сорбет, коктейли от бармена. Итальянское настроение и лёгкость. Подарки от брендов для каждого гостя.</p>
-        <div class="vibe-grid">
-            <div class="vibe-photo" id="vibe1"></div>
-            <div class="vibe-photo" id="vibe2"></div>
-            <div class="vibe-photo" id="vibe3"></div>
-            <div class="vibe-photo" id="vibe4"></div>
-            <div class="vibe-photo" id="vibe5"></div>
+<!-- ГАЛЕРЕЯ с фото, как в примере (без плейсхолдера) -->
+<div class="program-screen" id="programScreen">
+    <div class="program-container">
+        <h1 class="program-title" id="programTitle">Атмосфера</h1>
+        <p class="program-tagline" id="programTagline">sorbet • cocktails • gifts</p>
+        <div class="gallery-grid" id="galleryGrid">
+            <div class="gallery-card card-center" style="background-image: url('image_2026-08-05_20-44-27.png');"></div>
+            <div class="gallery-card card-left-top" style="background-image: url('image_2026-08-06_22-16-13.png');"></div>
+            <div class="gallery-card card-right-top" style="background-image: url('image_2026-08-05_20-51-48.png');"></div>
+            <div class="gallery-card card-left-bottom" style="background-image: url('image_2026-08-02_18-58-02.png');"></div>
+            <div class="gallery-card card-right-bottom" style="background-image: url('image_2026-08-06_22-18-48.png');"></div>
         </div>
     </div>
 </div>
@@ -1230,24 +1167,27 @@
             spObs.observe(speakersScreen);
         }
 
-        // АТМОСФЕРА — плавное появление 1, 2, 3, 4, 5
-        const vibeScreen = document.getElementById('vibeScreen');
-        if (vibeScreen) {
-            const vObs = new IntersectionObserver((entries) => {
+        // ПРОГРАММА / ГАЛЕРЕЯ
+        const programScreen = document.getElementById('programScreen');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+        if (programScreen) {
+            const pObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        document.getElementById('vibeTitle')?.classList.add('visible');
-                        document.getElementById('vibeTagline')?.classList.add('visible');
-                        setTimeout(() => document.getElementById('vibeDesc')?.classList.add('visible'), 400);
-                        const photos = document.querySelectorAll('.vibe-photo');
-                        photos.forEach((el, i) => {
-                            setTimeout(() => el.classList.add('visible'), 600 + i * 250);
+                        document.getElementById('programTitle')?.classList.add('visible');
+                        document.getElementById('programTagline')?.classList.add('visible');
+                        // Плавное появление с разными задержками
+                        const delays = [0, 500, 1000, 250, 750];
+                        galleryCards.forEach((card, i) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, delays[i] + 600);
                         });
-                        vObs.disconnect();
+                        pObs.disconnect();
                     }
                 });
             }, { threshold: 0.3 });
-            vObs.observe(vibeScreen);
+            pObs.observe(programScreen);
         }
 
         // АНКЕТА
