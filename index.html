@@ -285,6 +285,12 @@
             transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1);
         }
 
+        .description-text br {
+            display: block;
+            content: "";
+            margin-top: 6px;
+        }
+
         .line {
             width: 1px;
             background: #1a1a1a;
@@ -613,7 +619,7 @@
             }
         }
 
-        /* ----- ПРОГРАММА / ГАЛЕРЕЯ (как в примере) ----- */
+        /* ----- ПРОГРАММА / ГАЛЕРЕЯ ----- */
         .program-screen {
             background: #fff;
             padding: 35px 16px 45px;
@@ -680,7 +686,6 @@
             transform: scale(1);
         }
 
-        /* Расположение как в примере */
         .gallery-card.card-center {
             width: 60%;
             height: 62%;
@@ -1002,7 +1007,12 @@
     <div class="invitation-container">
         <h2 class="greeting-title" id="greetingTitle">Дорогие гости!</h2>
         <div class="save-the-date" id="saveTheDate">Save the date!</div>
-        <p class="description-text" id="descriptionText">Приглашаем вас на уникальный бьюти-девичник. Вас ждут разбор поэтапного ухода за кожей с тестом продуктов, мастер-класс по свежему макияжу, сорбет и коктейли от бармена.</p>
+        <p class="description-text" id="descriptionText">
+            Приглашаем вас на уникальный бьюти-девичник.<br>
+            Вас ждут разбор поэтапного ухода за кожей с тестом продуктов,<br>
+            мастер-класс по макияжу.<br><br>
+            Для гостей: сорбет и коктейли от бармена.
+        </p>
         <div class="line line-top"></div>
         <div class="date-block">
             <span class="date-number from-left-1">20</span><span class="dot">.</span><span class="date-number from-right">08</span><span class="dot">.</span><span class="date-number from-left-2">2026</span>
@@ -1047,7 +1057,7 @@
     </div>
 </div>
 
-<!-- ГАЛЕРЕЯ с фото, как в примере (центральное фото заменено) -->
+<!-- ГАЛЕРЕЯ с фото -->
 <div class="program-screen" id="programScreen">
     <div class="program-container">
         <h1 class="program-title" id="programTitle">Атмосфера</h1>
@@ -1176,7 +1186,6 @@
                     if (entry.isIntersecting) {
                         document.getElementById('programTitle')?.classList.add('visible');
                         document.getElementById('programTagline')?.classList.add('visible');
-                        // Плавное появление с разными задержками
                         const delays = [0, 500, 1000, 250, 750];
                         galleryCards.forEach((card, i) => {
                             setTimeout(() => {
@@ -1290,3 +1299,4 @@
 </script>
 </body>
 </html>
+      
