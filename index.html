@@ -680,57 +680,49 @@
             transform: scale(1);
         }
 
-        .gallery-card.card-center {
-            width: 60%;
-            height: 62%;
-            left: 20%;
-            top: 12%;
-            z-index: 10;
-        }
-        .gallery-card.card-left-top {
-            width: 40%;
-            height: 40%;
-            left: 2%;
-            top: 2%;
-            z-index: 4;
-        }
-        .gallery-card.card-right-top {
-            width: 40%;
-            height: 40%;
-            right: 2%;
-            top: 2%;
+        /* 4 фото в виде сетки 2x2 */
+        .gallery-card.card-top-left {
+            width: 48%;
+            height: 48%;
+            left: 1%;
+            top: 1%;
             z-index: 2;
         }
-        .gallery-card.card-left-bottom {
-            width: 44%;
-            height: 40%;
-            left: 2%;
-            bottom: 2%;
-            z-index: 5;
+        .gallery-card.card-top-right {
+            width: 48%;
+            height: 48%;
+            right: 1%;
+            top: 1%;
+            z-index: 2;
         }
-        .gallery-card.card-right-bottom {
-            width: 44%;
-            height: 40%;
-            right: 2%;
-            bottom: 2%;
-            z-index: 3;
+        .gallery-card.card-bottom-left {
+            width: 48%;
+            height: 48%;
+            left: 1%;
+            bottom: 1%;
+            z-index: 2;
+        }
+        .gallery-card.card-bottom-right {
+            width: 48%;
+            height: 48%;
+            right: 1%;
+            bottom: 1%;
+            z-index: 2;
         }
 
         @media (max-width: 580px) {
             .gallery-grid { aspect-ratio: 1 / 1.1; max-height: 480px; }
-            .gallery-card.card-center { width: 54%; height: 54%; left: 23%; top: 14%; }
-            .gallery-card.card-left-top { width: 36%; height: 36%; top: 2%; left: 2%; }
-            .gallery-card.card-right-top { width: 36%; height: 36%; top: 2%; right: 2%; }
-            .gallery-card.card-left-bottom { width: 40%; height: 38%; bottom: 2%; left: 2%; }
-            .gallery-card.card-right-bottom { width: 40%; height: 38%; bottom: 2%; right: 2%; }
+            .gallery-card.card-top-left { width: 48%; height: 48%; left: 1%; top: 1%; }
+            .gallery-card.card-top-right { width: 48%; height: 48%; right: 1%; top: 1%; }
+            .gallery-card.card-bottom-left { width: 48%; height: 48%; left: 1%; bottom: 1%; }
+            .gallery-card.card-bottom-right { width: 48%; height: 48%; right: 1%; bottom: 1%; }
         }
         @media (max-width: 420px) {
             .gallery-grid { aspect-ratio: 1 / 1.1; max-height: 400px; }
-            .gallery-card.card-center { width: 48%; height: 48%; left: 26%; top: 16%; }
-            .gallery-card.card-left-top { width: 32%; height: 32%; top: 2%; left: 2%; }
-            .gallery-card.card-right-top { width: 32%; height: 32%; top: 2%; right: 2%; }
-            .gallery-card.card-left-bottom { width: 36%; height: 34%; bottom: 2%; left: 2%; }
-            .gallery-card.card-right-bottom { width: 36%; height: 34%; bottom: 2%; right: 2%; }
+            .gallery-card.card-top-left { width: 48%; height: 48%; left: 1%; top: 1%; }
+            .gallery-card.card-top-right { width: 48%; height: 48%; right: 1%; top: 1%; }
+            .gallery-card.card-bottom-left { width: 48%; height: 48%; left: 1%; bottom: 1%; }
+            .gallery-card.card-bottom-right { width: 48%; height: 48%; right: 1%; bottom: 1%; }
         }
 
         /* ----- АНКЕТА ----- */
@@ -1046,17 +1038,16 @@
     </div>
 </div>
 
-<!-- ГАЛЕРЕЯ с фото -->
+<!-- ГАЛЕРЕЯ с 4 фото в сетке 2x2 -->
 <div class="program-screen" id="programScreen">
     <div class="program-container">
         <h1 class="program-title" id="programTitle">Атмосфера</h1>
         <p class="program-tagline" id="programTagline">sorbet • cocktails • gifts</p>
         <div class="gallery-grid" id="galleryGrid">
-            <div class="gallery-card card-center" style="background-image: url('image_2026-08-02_20-19-25.png');"></div>
-            <div class="gallery-card card-left-top" style="background-image: url('image_2026-08-06_22-16-13.png');"></div>
-            <div class="gallery-card card-right-top" style="background-image: url('image_2026-08-05_20-51-48.png');"></div>
-            <div class="gallery-card card-left-bottom" style="background-image: url('image_2026-08-02_18-58-02.png');"></div>
-            <div class="gallery-card card-right-bottom" style="background-image: url('image_2026-08-06_22-18-48.png');"></div>
+            <div class="gallery-card card-top-left" style="background-image: url('photo_2026-08-07_16-18-56.jpg');"></div>
+            <div class="gallery-card card-top-right" style="background-image: url('photo_2026-08-07_16-18-57.jpg');"></div>
+            <div class="gallery-card card-bottom-left" style="background-image: url('photo_2026-08-07_16-18-57\ \(2\).jpg');"></div>
+            <div class="gallery-card card-bottom-right" style="background-image: url('photo_2026-08-07_16-19-20.jpg');"></div>
         </div>
     </div>
 </div>
@@ -1175,11 +1166,11 @@
                     if (entry.isIntersecting) {
                         document.getElementById('programTitle')?.classList.add('visible');
                         document.getElementById('programTagline')?.classList.add('visible');
-                        const delays = [0, 500, 1000, 250, 750];
+                        const delays = [0, 400, 800, 1200];
                         galleryCards.forEach((card, i) => {
                             setTimeout(() => {
                                 card.classList.add('visible');
-                            }, delays[i] + 600);
+                            }, delays[i] + 500);
                         });
                         pObs.disconnect();
                     }
